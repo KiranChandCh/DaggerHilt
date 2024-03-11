@@ -21,6 +21,7 @@ android {
         vectorDrawables {
             useSupportLibrary = true
         }
+        buildConfigField("String", "BASE_URL", "\"https://5e510330f2c0d300147c034c.mockapi.io/\"")
     }
 
     buildTypes {
@@ -62,15 +63,24 @@ dependencies {
     implementation("androidx.compose.ui:ui-graphics")
     implementation("androidx.compose.ui:ui-tooling-preview")
     implementation("androidx.compose.material3:material3")
+    implementation("androidx.constraintlayout:constraintlayout:2.1.4")
+
+    val appcompat_version = "1.6.1"
+
+    implementation("androidx.appcompat:appcompat:$appcompat_version")
+    // For loading and tinting drawables on older versions of the platform
+    implementation("androidx.appcompat:appcompat-resources:$appcompat_version")
+
 
     implementation("androidx.recyclerview:recyclerview:1.3.2")
     //implementation("android.arch.lifecycle:extensions:{latest-version}")
     //implementation("androidx.hilt:hilt-lifecycle-viewmodel:1.0.0-alpha03")
-    //kapt("androidx.hilt:hilt-compiler:1.0.0")
+    kapt("androidx.hilt:hilt-compiler:1.0.0")
     implementation("com.github.bumptech.glide:glide:4.16.0")
     implementation("androidx.activity:activity-ktx:1.8.2")
 
     implementation("com.google.dagger:hilt-android:2.51")
+    implementation("androidx.appcompat:appcompat:1.6.1")
     kapt("com.google.dagger:hilt-compiler:2.51")
 
     // Networking
